@@ -796,15 +796,15 @@ public class RedisUtil
 	 * @param values
 	 *            待添加的数据
 	 */
-		public void addToListRight(String listKey, Status.ExpireEnum expireEnum, Object... values)
-		{
-			//绑定操作
-			BoundListOperations<String, Object> boundValueOperations = redisTemplate.boundListOps(listKey);
-			//插入数据
-			boundValueOperations.rightPushAll(values);
-			//设置过期时间
-			boundValueOperations.expire(expireEnum.getTime(), expireEnum.getTimeUnit());
-		}
+	public void addToListRight(String listKey, Status.ExpireEnum expireEnum, Object... values)
+	{
+		//绑定操作
+		BoundListOperations<String, Object> boundValueOperations = redisTemplate.boundListOps(listKey);
+		//插入数据
+		boundValueOperations.rightPushAll(values);
+		//设置过期时间
+		boundValueOperations.expire(expireEnum.getTime(), expireEnum.getTimeUnit());
+	}
 
 	/**
 	 * 根据起始结束序号遍历Redis中的list

@@ -18,7 +18,7 @@ import java.util.Date;
 @RestController
 public class RedisController
 {
-    // redis中存储的过期时间60s
+	// redis中存储的过期时间60s
 	private static int ExpireTime = 60;
 
 	@Resource

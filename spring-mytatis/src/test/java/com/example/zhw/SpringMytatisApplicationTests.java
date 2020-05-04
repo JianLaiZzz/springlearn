@@ -18,15 +18,13 @@ class SpringMytatisApplicationTests
 	}
 
 	@Test
-	public void testStringCommand() {
+	public void testStringCommand()
+	{
 
-		redisUtil.set("name","zhw");
+		redisUtil.set("name", "zhw");
 
-		 System.out.println("value"+redisUtil.get("name"));
+		System.out.println("value" + redisUtil.get("name"));
 
 	}
-
-
-
 
 }
