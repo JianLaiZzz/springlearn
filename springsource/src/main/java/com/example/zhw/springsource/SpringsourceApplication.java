@@ -7,13 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringsourceApplication
 {
 
-
-
-
 	public static void main(String[] args)
 	{
 		SpringApplication.run(SpringsourceApplication.class, args);
-		 System.out.println("hehhe111");
+		 System.out.println("hehhe1113213123123");
 	}
 
 }
