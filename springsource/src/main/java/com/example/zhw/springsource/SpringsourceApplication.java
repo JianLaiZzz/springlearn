@@ -10,6 +10,7 @@ public class SpringsourceApplication
 	public static void main(String[] args)
 	{
 		SpringApplication.run(SpringsourceApplication.class, args);
+		 System.out.println("herh");
 	}
 
 }
