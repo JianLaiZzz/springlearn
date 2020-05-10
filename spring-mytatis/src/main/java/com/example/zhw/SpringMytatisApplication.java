@@ -27,6 +27,7 @@ public class SpringMytatisApplication
 		String url = "http://localhost:" + port + "/hello";
 		Runtime runtime = Runtime.getRuntime();
 		try
+
 		{
 			runtime.exec("rundll32 url.dll,FileProtocolHandler " + url);
 		}
