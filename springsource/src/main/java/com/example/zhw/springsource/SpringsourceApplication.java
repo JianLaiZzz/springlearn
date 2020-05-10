@@ -14,4 +14,8 @@ public class SpringsourceApplication
 		System.out.println("hehhe1113213123123");
 	}
 
+	private  void test(){
+
+	}
+
 }
