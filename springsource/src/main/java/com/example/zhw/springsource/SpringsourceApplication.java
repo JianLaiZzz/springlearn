@@ -9,7 +9,7 @@ public class SpringsourceApplication
 
 	public static void main(String[] args)
 	{
-		System.out.println("zhagwwerwer");
+		System.out.println("zhagwwerwer１１");
 		SpringApplication.run(SpringsourceApplication.class, args);
 		 System.out.println("hehhe1113213123123");
 	}
