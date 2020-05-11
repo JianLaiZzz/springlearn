@@ -22,4 +22,9 @@ public class SpringsourceApplication
 
 	}
 
+    public  void say1(){
+
+    }
+
+
 }
