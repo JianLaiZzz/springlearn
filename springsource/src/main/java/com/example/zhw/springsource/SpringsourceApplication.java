@@ -30,13 +30,7 @@ public class SpringsourceApplication
 
     }
 
-    public  void say3(){
 
-    }
-
-	public  void say4(){
-
-	}
 
 
 
