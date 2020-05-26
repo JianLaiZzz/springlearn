@@ -17,6 +17,11 @@ public class Dog
 	 */
 	public Dog()
 	{
+		say();
+	}
+
+	public  void say(){
+
 	}
 
 	/**
