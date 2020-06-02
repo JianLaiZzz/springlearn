@@ -15,6 +15,15 @@ import io.netty.channel.socket.nio.NioSocketChannel;
  */
 public class TimeCilent {
 
+
+    public static void main(String[] args) {
+        int port=8080;
+        new TimeCilent().connect(port,"127.0.0.1");
+    }
+
+
+
+
     public void connect(int port, String host) {
 
         EventLoopGroup group = new NioEventLoopGroup();
@@ -39,6 +48,8 @@ public class TimeCilent {
 
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }finally {
+            group.shutdownGracefully();
         }
     }
 }

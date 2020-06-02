@@ -14,8 +14,19 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  * @date 2020/6/2 11:52
  */
 public class TimeServer {
-    public void bind(int port) {
 
+
+    public static void main(String[] args) {
+        int port = 8080;
+        if (args != null && args.length > 0) {
+            port = Integer.valueOf(args[0]);
+        }
+
+        new TimeServer().bind(port);
+    }
+
+
+    public void bind(int port) {
         //配置服务端的nio线程组
         EventLoopGroup bossGroup = new NioEventLoopGroup();
 
