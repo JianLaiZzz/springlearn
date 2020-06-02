@@ -1,7 +1,10 @@
 package com.example.zhw.springsource.nio;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
@@ -89,15 +92,40 @@ public class MultiplexerTimeServer implements Runnable
 			if (selectionKey.isAcceptable())
 			{
 
+				ServerSocketChannel ssc = (ServerSocketChannel) selectionKey.channel();
+
+				SocketChannel sc = null;
+				try
+				{
+					sc = ssc.accept();
+					sc.configureBlocking(false);
+					sc.register(selector, SelectionKey.OP_READ);
+				}
+				catch (IOException e)
+				{
+					e.printStackTrace();
+				}
+
+			}
+
+			if (selectionKey.isReadable())
+			{
+
 			}
 		}
 
 	}
 
-	private void dowrite(SocketChannel channel, String respose)
+	private void dowrite(SocketChannel channel, String respose) throws IOException
 	{
 		if (respose != null && respose.trim().length() > 0)
 		{
+			byte[] bytes = respose.getBytes();
+			ByteBuffer writeBuffer = ByteBuffer.allocate(bytes.length);
+
+			writeBuffer.put(bytes);
+			writeBuffer.flip();
+			channel.write(writeBuffer);
 
 		}
 
