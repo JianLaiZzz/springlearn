@@ -24,6 +24,7 @@
 
     <modules>
         <module>spring-mytatis</module>
+        <module>springsource</module>
     </modules>
 
     <dependencies>
@@ -44,7 +45,6 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.7.0</version>
         </dependency>
-
 
 
         <dependency>
