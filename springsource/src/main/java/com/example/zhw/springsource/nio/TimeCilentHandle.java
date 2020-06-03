@@ -5,53 +5,56 @@ import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.Set;
 
 /**
- * @author: zhw
- * @createDate: 2020/6/2
+ * @author zhangwei1
+ * @date 2020/6/3 14:36
  */
-public class MultiplexerTimeServer implements Runnable {
+public class TimeCilentHandle implements Runnable {
+
+    private String host;
+
+    private int port;
 
     private Selector selector;
 
-    private ServerSocketChannel serverSocketChannel;
+    private SocketChannel socketChannel;
 
     private volatile boolean stop;
 
-    public MultiplexerTimeServer(int port) {
+
+    public TimeCilentHandle(String host, int port) {
+        this.host = host == null ? "127.0.0.1" : host;
+        this.port = port;
+
         try {
-
-            //打开多路复用器
             selector = Selector.open();
-            //打开服务端通道
-            serverSocketChannel = ServerSocketChannel.open();
-            //配置是否阻塞
-            serverSocketChannel.configureBlocking(false);
-            //监听端口
-            serverSocketChannel.socket().bind(new InetSocketAddress(port), 1024);
 
-            //注册多路复用器
-            serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+            socketChannel = SocketChannel.open();
+            socketChannel.configureBlocking(false);
 
-            System.out.println("The time server is start in port:" + port);
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(1);
         }
 
+
     }
 
-    public void stop() {
-        this.stop = true;
-    }
 
     @Override
     public void run() {
+
+        try {
+            doConnect();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+
         while (!stop) {
             try {
                 selector.select(1000);
@@ -63,7 +66,6 @@ public class MultiplexerTimeServer implements Runnable {
                 while (iterator.hasNext()) {
                     selectionKey = iterator.next();
                     iterator.remove();
-
                     try {
                         handleinput(selectionKey);
                     } catch (Exception e) {
@@ -74,12 +76,11 @@ public class MultiplexerTimeServer implements Runnable {
                             }
                         }
                     }
-
-
                 }
 
             } catch (IOException e) {
                 e.printStackTrace();
+                System.exit(1);
             }
         }
 
@@ -93,37 +94,29 @@ public class MultiplexerTimeServer implements Runnable {
             }
 
         }
-
     }
 
-    private void handleinput(SelectionKey selectionKey) {
+    private void handleinput(SelectionKey selectionKey) throws IOException {
         if (selectionKey.isValid()) {
 
-            //处理新接入的请求消息
-            if (selectionKey.isAcceptable()) {
-                ServerSocketChannel ssc = (ServerSocketChannel) selectionKey.channel();
-
-                SocketChannel sc = null;
-                try {
-                    sc = ssc.accept();
-                    sc.configureBlocking(false);
+            SocketChannel sc = (SocketChannel) selectionKey.channel();
+            if (selectionKey.isConnectable()) {
+                if (sc.finishConnect()) {
 
                     sc.register(selector, SelectionKey.OP_READ);
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    doWrite(sc);
+                } else {
+                    //连接失败，进程退出
+                    System.exit(1);
                 }
-
             }
-
 
             if (selectionKey.isReadable()) {
                 try {
 
-                    SocketChannel socketChannel = (SocketChannel) selectionKey.channel();
-
                     ByteBuffer readBuffer = ByteBuffer.allocate(1024);
 
-                    int readBytes = socketChannel.read(readBuffer);
+                    int readBytes = sc.read(readBuffer);
                     if (readBytes > 0) {
 
                         readBuffer.flip();
@@ -132,11 +125,9 @@ public class MultiplexerTimeServer implements Runnable {
 
                         String body = new String(bytes, "UTF-8");
 
-                        System.out.println("the timeser recevie order:" + body);
+                        System.out.println("now is " + body);
+                        this.stop = true;
 
-                        String currenTime = "QUERY CURRRNT TIEM".equalsIgnoreCase(body) ? new Date().toString()
-                                : "bad order";
-                        dowrite(socketChannel, currenTime);
                     } else if (readBytes < 0) {
                         //对链路关闭
                         selectionKey.cancel();
@@ -154,16 +145,30 @@ public class MultiplexerTimeServer implements Runnable {
 
     }
 
-    private void dowrite(SocketChannel channel, String respose) throws IOException {
-        if (respose != null && respose.trim().length() > 0) {
-            byte[] bytes = respose.getBytes();
-            ByteBuffer writeBuffer = ByteBuffer.allocate(bytes.length);
 
-            writeBuffer.put(bytes);
-            writeBuffer.flip();
-            channel.write(writeBuffer);
+    private void doConnect() throws IOException {
+        //如果直接连接成功，则注册到多路复用器上，发送请求消息，读应答
+        if (socketChannel.connect(new InetSocketAddress(host, port))) {
 
+            socketChannel.register(selector, SelectionKey.OP_READ);
+        } else {
+            socketChannel.register(selector, SelectionKey.OP_CONNECT);
         }
+    }
+
+    private void doWrite(SocketChannel sc) throws IOException {
+
+        byte[] req = "QUERY TIME  ORDER".getBytes();
+
+        ByteBuffer writeBuffer = ByteBuffer.allocate(req.length);
+        writeBuffer.put(req);
+        writeBuffer.flip();
+        sc.write(writeBuffer);
+
+        if (!writeBuffer.hasRemaining()) {
+            System.out.println("Send order 2 server success");
+        }
+
 
     }
 }
