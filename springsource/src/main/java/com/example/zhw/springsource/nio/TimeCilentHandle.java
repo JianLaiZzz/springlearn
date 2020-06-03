@@ -131,7 +131,7 @@ public class TimeCilentHandle implements Runnable {
                     } else if (readBytes < 0) {
                         //对链路关闭
                         selectionKey.cancel();
-                        socketChannel.close();
+                        sc.close();
                     } else {
                         //读到零字节
                     }
@@ -158,7 +158,7 @@ public class TimeCilentHandle implements Runnable {
 
     private void doWrite(SocketChannel sc) throws IOException {
 
-        byte[] req = "QUERY TIME  ORDER".getBytes();
+        byte[] req = "QUERY CURRRNT TIEM".getBytes();
 
         ByteBuffer writeBuffer = ByteBuffer.allocate(req.length);
         writeBuffer.put(req);
