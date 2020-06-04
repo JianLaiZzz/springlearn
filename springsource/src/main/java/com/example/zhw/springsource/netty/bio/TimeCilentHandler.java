@@ -12,21 +12,31 @@ import java.util.logging.Logger;
  * @date 2020/6/2 15:07
  */
 public class TimeCilentHandler extends ChannelHandlerAdapter {
-    Class clazz;
+
     private static final Logger LOGGER = Logger.getLogger(TimeCilentHandler.class.getName());
 
-    private final ByteBuf firstMessage;
+//    private final ByteBuf firstMessage;
+
+    private int counter;
+
+    private byte[] req;
 
     public TimeCilentHandler() {
 
-        byte[] req = "QUERY TIME ORDER".getBytes();
-        this.firstMessage = Unpooled.buffer(req.length);
-        firstMessage.writeBytes(req);
+        req = ("QUERY TIME ORDER" + System.getProperty("line.separator")).getBytes();
+
     }
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        ctx.writeAndFlush(firstMessage);
+        ByteBuf firstMessage = null;
+        for (int i = 0; i < 100; i++) {
+            firstMessage = Unpooled.buffer(req.length);
+            firstMessage.writeBytes(req);
+            ctx.writeAndFlush(firstMessage);
+        }
+
+
     }
 
     @Override
@@ -37,7 +47,7 @@ public class TimeCilentHandler extends ChannelHandlerAdapter {
         buf.readBytes(req);
 
         String body = new String(req, "utf-8");
-        System.out.println("now is:" + body);
+        System.out.println("now is:" + body + ";the counter is:" +   ++counter);
     }
 
     @Override
