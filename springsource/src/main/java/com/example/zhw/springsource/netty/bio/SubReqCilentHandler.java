@@ -15,6 +15,7 @@ public class SubReqCilentHandler extends ChannelHandlerAdapter {
         for (int i = 0; i < 10; i++) {
             ctx.write(subReq(i));
         }
+        ctx.flush();
     }
 
     private SubscribeReq subReq(int i) {
@@ -22,6 +23,7 @@ public class SubReqCilentHandler extends ChannelHandlerAdapter {
         SubscribeReq subscribeReq = new SubscribeReq();
         subscribeReq.setUserName("zhangwei");
         subscribeReq.setAddress("科陆电子");
+        subscribeReq.setProductName("Netty权威指南");
         subscribeReq.setIphoneNumber("12241242414");
         subscribeReq.setSubReqId(i);
 

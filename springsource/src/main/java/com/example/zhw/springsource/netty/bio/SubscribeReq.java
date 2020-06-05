@@ -10,6 +10,7 @@ import java.io.Serializable;
  */
 @Data
 public class SubscribeReq implements Serializable {
+
     private String userName;
 
     private int subReqId;
