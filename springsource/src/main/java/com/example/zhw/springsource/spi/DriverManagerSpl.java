@@ -3,6 +3,7 @@ package com.example.zhw.springsource.spi;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 /**
  * @author: zhw
@@ -14,10 +15,13 @@ public class DriverManagerSpl
 	static String user = "root";
 	static String password = "123456";
 
+
+
 	public static void main(String args[]) throws ClassNotFoundException, SQLException
 	{
+		new HashMap();
 
-		 			Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection connection = DriverManager.getConnection(url, user, password);
 
 	}
