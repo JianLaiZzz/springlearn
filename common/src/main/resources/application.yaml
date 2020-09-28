@@ -21,7 +21,7 @@ spring:
     #配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入
     #如果运行时报错  java.lang.ClassNotFoundException: org.apache.log4j.Priority
     #则导入 log4j 依赖即可，Maven 地址： https://mvnrepository.com/artifact/log4j/log4j
-    filters: stat,wall,log4j,config
+    filters: stat,wall,slf4j,config
     #合并多个DruidDataSource的监控数据
     useGlobalDataSourceStat: true
     #通过connectProperties属性来打开mergeSql功能；慢SQL记录
@@ -38,5 +38,12 @@ management:
     web:
       exposure:
         include: "*"
+logging:
+  file:
+    path: D:\logs\springlearn
+#  config: classpath:logback-spring.xml 可以不配置默认读取
+
+
+
 
 
