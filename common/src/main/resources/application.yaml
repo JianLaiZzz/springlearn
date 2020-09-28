@@ -4,7 +4,7 @@ spring:
     name: zhw
     username: root
     password: 123456
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     #druid 数据源专有配置
     initialSize: 5
@@ -26,3 +26,17 @@ spring:
     useGlobalDataSourceStat: true
     #通过connectProperties属性来打开mergeSql功能；慢SQL记录
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  security:
+    user:
+      name: zhw
+      password: 123456
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
