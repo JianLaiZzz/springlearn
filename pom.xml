@@ -25,12 +25,17 @@
         <mysql-connector-java>8.0.19</mysql-connector-java>
         <junit-version>4.12</junit-version>
         <jackson-version>2.11.2</jackson-version>
+        <druid.vsersion>1.1.10</druid.vsersion>
+        <log4j.vsrsion>1.2.17</log4j.vsrsion>
     </properties>
 
     <modules>
         <module>spring-mytatis</module>
         <module>springsource</module>
         <!--        <module>springboot</module>-->
+
+
+        <module>common</module>
     </modules>
 
     <dependencies>
@@ -38,6 +43,13 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.vsrsion}</version>
         </dependency>
 
 
@@ -93,7 +105,14 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson-version}</version>
         </dependency>
-        
+
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid.vsersion}</version>
+        </dependency>
+
 
     </dependencies>
 
