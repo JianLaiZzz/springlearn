@@ -38,9 +38,9 @@ management:
     web:
       exposure:
         include: "*"
-logging:
-  file:
-    path: D:\logs\springlearn
+#logging:
+#  file:
+#    path: D:\logs\springlearn
 #  config: classpath:logback-spring.xml 可以不配置默认读取
 
 
