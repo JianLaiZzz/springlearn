@@ -32,9 +32,8 @@
     <modules>
         <module>spring-mytatis</module>
         <module>springsource</module>
-        <!--        <module>springboot</module>-->
-
-
+        <module>spring-shardingsphere</module>
+        <module>spring-elasticsearch</module>
         <module>common</module>
     </modules>
 
