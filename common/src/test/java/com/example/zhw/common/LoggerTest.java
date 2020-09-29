@@ -1,4 +1,4 @@
-package com.example.common;
+package com.example.zhw.common;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

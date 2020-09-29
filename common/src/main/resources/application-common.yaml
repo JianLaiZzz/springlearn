@@ -32,6 +32,14 @@ spring:
       password: 123456
   profiles:
     include:
+  redis:
+    host: 120.78.132.139
+    port: 6379
+    password: zhw
+    jedis:
+      pool:
+        max-active: 200
+    timeout: 1000
 
 
 
@@ -44,6 +52,11 @@ management:
 #  file:
 #    path: D:\logs\springlearn
 #  config: classpath:logback-spring.xml 可以不配置默认读取
+
+
+
+
+
 
 
 

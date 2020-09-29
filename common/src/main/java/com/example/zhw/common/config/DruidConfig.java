@@ -1,4 +1,4 @@
-package com.example.common.config;
+package com.example.zhw.common.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 

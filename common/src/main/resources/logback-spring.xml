@@ -13,7 +13,7 @@
 <!--    <springProperty scope="context" name="log.path" source="logging.file.path"/>-->
     <property name="log.path" value="./logs"></property>
 
-<!--    <contextListener class="com.example.common.config.CustomLogContextListener" />-->
+<!--    <contextListener class="CustomLogContextListener" />-->
 
     <!-- 彩色日志 -->
     <!-- 彩色日志依赖的渲染类 -->
