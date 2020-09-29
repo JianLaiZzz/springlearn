@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.example</groupId>
+    <groupId>com.example.zhw</groupId>
     <artifactId>spring-elasticsearch</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-elasticsearch</name>

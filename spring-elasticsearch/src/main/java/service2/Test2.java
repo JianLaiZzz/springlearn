@@ -1,6 +1,6 @@
 package service2;
 
-import com.example.springelasticsearch.Test;
+import com.example.zhw.springelasticsearch.Test;
 import org.springframework.stereotype.Service;
 
 

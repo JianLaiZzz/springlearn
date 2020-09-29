@@ -1,4 +1,4 @@
-package com.example.springelasticsearch;
+package com.example.zhw.springelasticsearch;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

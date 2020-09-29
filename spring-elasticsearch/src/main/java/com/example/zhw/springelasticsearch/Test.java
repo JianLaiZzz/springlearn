@@ -1,4 +1,4 @@
-package com.example.springelasticsearch;
+package com.example.zhw.springelasticsearch;
 
 public interface Test {
 

@@ -1,10 +1,10 @@
-package com.example.common;
+package com.example.zhw.springelasticsearch;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CommonApplicationTests {
+class SpringElasticsearchApplicationTests {
 
     @Test
     void contextLoads() {

@@ -1,6 +1,6 @@
-package com.example.springelasticsearch.controller;
+package com.example.zhw.springelasticsearch.controller;
 
-import com.example.springelasticsearch.Test;
+import com.example.zhw.springelasticsearch.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

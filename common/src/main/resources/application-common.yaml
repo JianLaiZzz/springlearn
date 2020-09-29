@@ -30,6 +30,8 @@ spring:
     user:
       name: zhw
       password: 123456
+  profiles:
+    include:
 
 
 
@@ -42,6 +44,8 @@ management:
 #  file:
 #    path: D:\logs\springlearn
 #  config: classpath:logback-spring.xml 可以不配置默认读取
+
+
 
 
 
