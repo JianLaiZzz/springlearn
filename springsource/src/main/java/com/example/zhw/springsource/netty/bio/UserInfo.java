@@ -10,42 +10,43 @@ import java.nio.ByteBuffer;
  * @date 2020/6/5 11:17
  */
 @Data
-public class UserInfo implements Serializable {
+public class UserInfo implements Serializable
+{
 
+	private String userName;
 
-    private String userName;
+	private int userId;
 
-    private int userId;
+	public UserInfo buildUserName(String userName)
+	{
+		this.userName = userName;
+		return this;
+	}
 
+	public UserInfo buildUserId(int userId)
+	{
+		this.userId = userId;
+		return this;
+	}
 
-    public UserInfo buildUserName(String userName) {
-        this.userName = userName;
-        return this;
-    }
+	public byte[] codeC()
+	{
+		ByteBuffer buffer = ByteBuffer.allocate(1024);
 
-    public UserInfo buildUserId(int userId) {
-        this.userId = userId;
-        return this;
-    }
+		byte[] value = this.userName.getBytes();
 
-    public byte[] codeC() {
-        ByteBuffer buffer = ByteBuffer.allocate(1024);
+		buffer.putInt(value.length);
+		buffer.put(value);
 
-        byte[] value = this.userName.getBytes();
+		buffer.putInt(this.userId);
+		buffer.flip();
 
-        buffer.putInt(value.length);
-        buffer.put(value);
+		value = null;
 
-        buffer.putInt(this.userId);
-        buffer.flip();
+		byte[] result = new byte[buffer.remaining()];
+		buffer.get(result);
+		return result;
 
-        value = null;
-
-        byte[] result = new byte[buffer.remaining()];
-        buffer.get(result);
-        return result;
-
-    }
-
+	}
 
 }

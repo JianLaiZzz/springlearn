@@ -1,6 +1,7 @@
 package com.example.zhw.springelasticsearch;
 
-public interface Test {
+public interface Test
+{
 
-    public  void  say();
+	public void say();
 }

@@ -1,6 +1,5 @@
 package com.example.zhw.config;
 
-
 import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
@@ -15,9 +14,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @MapperScan("com.example.zhw.mapper.*")
 @EnableTransactionManagement
-public class MybatisConfig {
-    @Bean
-    public PaginationInterceptor paginationInterceptor() {
-        return new PaginationInterceptor();
-    }
+public class MybatisConfig
+{
+	@Bean
+	public PaginationInterceptor paginationInterceptor()
+	{
+		return new PaginationInterceptor();
+	}
 }

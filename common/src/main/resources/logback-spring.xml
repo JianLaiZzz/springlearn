@@ -10,10 +10,10 @@
     <contextName>logback</contextName>
     <!-- name的值是变量的名称，value的值时变量定义的值。通过定义的值会被插入到logger上下文中。定义变量后，可以使“${}”来使用变量。 -->
 
-<!--    <springProperty scope="context" name="log.path" source="logging.file.path"/>-->
+    <!--    <springProperty scope="context" name="log.path" source="logging.file.path"/>-->
     <property name="log.path" value="./logs"></property>
 
-<!--    <contextListener class="CustomLogContextListener" />-->
+    <!--    <contextListener class="CustomLogContextListener" />-->
 
     <!-- 彩色日志 -->
     <!-- 彩色日志依赖的渲染类 -->
@@ -175,6 +175,7 @@
         不能设置为INHERITED或者同义词NULL。默认是DEBUG
         可以包含零个或多个元素，标识这个appender将会添加到这个logger。
     -->
+    <logger name=" com.example.zhw.mapper" level="debug"></logger>
 
     <!--开发环境:打印控制台-->
     <springProfile name="dev">

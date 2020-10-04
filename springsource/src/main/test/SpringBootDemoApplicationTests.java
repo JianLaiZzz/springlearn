@@ -13,34 +13,43 @@ import org.springframework.test.context.web.WebAppConfiguration;
  * @date 2020/7/3 14:35
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {FactoryBeanTest.class})
+@SpringBootTest(classes = { FactoryBeanTest.class })
 @WebAppConfiguration
-public class SpringBootDemoApplicationTests {
+public class SpringBootDemoApplicationTests
+{
 
-    @Autowired
-    private ApplicationContext applicationContext;
+	@Autowired
+	private ApplicationContext applicationContext;
 
-    @Test
-    public void tesst() {
-        FactoryBeanTest bean1 = applicationContext.getBean(FactoryBeanTest.class);
-        try {
-            Dog object = bean1.getObject();
-            System.out.println(object==object);
-            System.out.println(object);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+	@Test
+	public void tesst()
+	{
+		FactoryBeanTest bean1 = applicationContext.getBean(FactoryBeanTest.class);
+		try
+		{
+			Dog object = bean1.getObject();
+			System.out.println(object == object);
+			System.out.println(object);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
 
-    @Test
-    public void tesst1() {
-        FactoryBeanTest bean1 = (FactoryBeanTest) applicationContext.getBean("factoryBeanTest");
-        try {
-            Dog object = bean1.getObject();
-            System.out.println(object==object);
-            System.out.println(object);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+	@Test
+	public void tesst1()
+	{
+		FactoryBeanTest bean1 = (FactoryBeanTest) applicationContext.getBean("factoryBeanTest");
+		try
+		{
+			Dog object = bean1.getObject();
+			System.out.println(object == object);
+			System.out.println(object);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
 }

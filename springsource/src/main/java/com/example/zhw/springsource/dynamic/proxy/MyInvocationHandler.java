@@ -25,11 +25,13 @@ public class MyInvocationHandler implements InvocationHandler
 		this.target = target;
 	}
 
-	public Object getTarget() {
+	public Object getTarget()
+	{
 		return target;
 	}
 
-	public void setTarget(Object target) {
+	public void setTarget(Object target)
+	{
 		this.target = target;
 	}
 
@@ -39,8 +41,7 @@ public class MyInvocationHandler implements InvocationHandler
 		// 在目标对象的方法执行之前简单的打印一下
 		System.out.println("------------------before------------------");
 
-
-		UserService proxyUserService= (UserService) o;
+		UserService proxyUserService = (UserService) o;
 
 		// 执行目标对象的方法
 		Object result = method.invoke(target, objects);

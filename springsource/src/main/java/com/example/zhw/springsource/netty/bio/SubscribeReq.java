@@ -9,16 +9,17 @@ import java.io.Serializable;
  * @date 2020/6/5 15:00
  */
 @Data
-public class SubscribeReq implements Serializable {
+public class SubscribeReq implements Serializable
+{
 
-    private String userName;
+	private String userName;
 
-    private int subReqId;
+	private int subReqId;
 
-    private String productName;
+	private String productName;
 
-    private String iphoneNumber;
+	private String iphoneNumber;
 
-    private String address;
+	private String address;
 
 }

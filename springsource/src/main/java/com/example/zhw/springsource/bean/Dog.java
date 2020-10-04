@@ -20,7 +20,8 @@ public class Dog
 		say();
 	}
 
-	public  void say(){
+	public void say()
+	{
 
 	}
 

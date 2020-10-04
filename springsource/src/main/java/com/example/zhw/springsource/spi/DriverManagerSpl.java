@@ -15,8 +15,6 @@ public class DriverManagerSpl
 	static String user = "root";
 	static String password = "123456";
 
-
-
 	public static void main(String args[]) throws ClassNotFoundException, SQLException
 	{
 		new HashMap();

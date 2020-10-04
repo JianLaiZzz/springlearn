@@ -9,10 +9,11 @@ import java.io.Serializable;
  * @date 2020/6/5 15:03
  */
 @Data
-public class SubscribeResq implements Serializable {
-    private int subReqId;
+public class SubscribeResq implements Serializable
+{
+	private int subReqId;
 
-    private int resqCode;
+	private int resqCode;
 
-    private String desc;
+	private String desc;
 }

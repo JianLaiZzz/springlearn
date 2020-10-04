@@ -13,58 +13,60 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  * @author zhangwei1
  * @date 2020/6/2 11:52
  */
-public class TimeServer {
+public class TimeServer
+{
 
+	public static void main(String[] args)
+	{
+		int port = 8080;
+		if (args != null && args.length > 0)
+		{
+			port = Integer.valueOf(args[0]);
+		}
 
+		new TimeServer().bind(port);
+	}
 
+	public void bind(int port)
+	{
+		//配置服务端的nio线程组
+		EventLoopGroup bossGroup = new NioEventLoopGroup();
 
-    public static void main(String[] args) {
-        int port = 8080;
-        if (args != null && args.length > 0) {
-            port = Integer.valueOf(args[0]);
-        }
+		EventLoopGroup wokerGroup = new NioEventLoopGroup();
 
-        new TimeServer().bind(port);
-    }
+		try
+		{
+			ServerBootstrap b = new ServerBootstrap();
+			b.group(bossGroup, wokerGroup).channel(NioServerSocketChannel.class)
+					.option(ChannelOption.SO_BACKLOG, 1024).childHandler(new ChildChannelHandler());
 
+			//绑定端口，同步等待成功
+			ChannelFuture f = b.bind(port).sync();
 
-    public void bind(int port) {
-        //配置服务端的nio线程组
-        EventLoopGroup bossGroup = new NioEventLoopGroup();
+			//等待服务器监听端口关闭
+			f.channel().closeFuture().sync();
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			//优雅退出，释放线程池资源
+			bossGroup.shutdownGracefully();
+			wokerGroup.shutdownGracefully();
+		}
 
-        EventLoopGroup wokerGroup = new NioEventLoopGroup();
+	}
 
+	private class ChildChannelHandler extends ChannelInitializer<SocketChannel>
+	{
 
-        try {
-            ServerBootstrap b = new ServerBootstrap();
-            b.group(bossGroup, wokerGroup)
-                    .channel(NioServerSocketChannel.class)
-                    .option(ChannelOption.SO_BACKLOG, 1024)
-                    .childHandler(new ChildChannelHandler());
+		@Override
+		protected void initChannel(SocketChannel socketChannel) throws Exception
+		{
 
-            //绑定端口，同步等待成功
-            ChannelFuture f = b.bind(port).sync();
-
-            //等待服务器监听端口关闭
-            f.channel().closeFuture().sync();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-            //优雅退出，释放线程池资源
-            bossGroup.shutdownGracefully();
-            wokerGroup.shutdownGracefully();
-        }
-
-
-    }
-
-
-    private class ChildChannelHandler extends ChannelInitializer<SocketChannel> {
-
-        @Override
-        protected void initChannel(SocketChannel socketChannel) throws Exception {
-
-            socketChannel.pipeline().addLast(new TimeServerHandler());
-        }
-    }
+			socketChannel.pipeline().addLast(new TimeServerHandler());
+		}
+	}
 }

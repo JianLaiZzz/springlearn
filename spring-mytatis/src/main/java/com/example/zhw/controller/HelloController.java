@@ -19,23 +19,25 @@ import java.util.Map;
  */
 @RestController
 @Api("hello基础文档")
-public class HelloController {
-    @Value("${value}")
-    private String value;
+public class HelloController
+{
+	@Value("${value}")
+	private String value;
 
-    @Autowired
-    private UserService userService;
+	@Autowired
+	private UserService userService;
 
-    @GetMapping("/hello")
-    @ApiOperation(value = "hello方法")
-    public String hello() {
-        Wrapper<User> wrapper = new EntityWrapper();
-        Map<String, Object> map = userService.selectMap(wrapper);
-        map.forEach((k, v) ->
-        {
-            System.out.println(k + ":" + v);
-        });
+	@GetMapping("/hello")
+	@ApiOperation(value = "hello方法")
+	public String hello()
+	{
+		Wrapper<User> wrapper = new EntityWrapper();
+		Map<String, Object> map = userService.selectMap(wrapper);
+		map.forEach((k, v) ->
+		{
+			System.out.println(k + ":" + v);
+		});
 
-        return value;
-    }
+		return value;
+	}
 }

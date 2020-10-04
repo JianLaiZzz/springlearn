@@ -47,12 +47,11 @@ public class TimeServerHandler implements Runnable
 				}
 				System.out.println("the timeser recevie order:" + body);
 
-
 				currenTime = "QUERY CURRRNT TIEM".equalsIgnoreCase(body) ? new Date().toString()
 						: "bad order";
 
 				out.println(currenTime);
-//				System.out.println(new Date().toString());
+				//				System.out.println(new Date().toString());
 
 			}
 		}

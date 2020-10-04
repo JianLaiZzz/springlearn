@@ -10,6 +10,4 @@ import com.example.zhw.entry.User;
 public interface UserService extends IService<User>
 {
 
-
 }
-

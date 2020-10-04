@@ -8,15 +8,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/hello")
-public class TestController {
+public class TestController
+{
 
+	@Autowired
+	private Test test;
 
-    @Autowired
-    private Test test;
-
-    @GetMapping("/hello")
-    public  void say(){
-        test.say();
-    }
+	@GetMapping("/hello")
+	public void say()
+	{
+		test.say();
+	}
 
 }

@@ -58,9 +58,8 @@ management:
 
 
 
-
-
-
-
-
-
+second-datasource:
+  driver-class-name: org.hsqldb.jdbc.JDBCDriver
+  url: jdbc:hsqldb:mem:db2
+  username: sa
+  password:

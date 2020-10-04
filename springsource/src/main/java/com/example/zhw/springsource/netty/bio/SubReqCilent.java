@@ -16,41 +16,49 @@ import io.netty.handler.codec.serialization.ObjectEncoder;
  * @author zhangwei1
  * @date 2020/6/5 15:24
  */
-public class SubReqCilent {
-    public static void main(String[] args) {
-        int port = 8080;
-        new SubReqCilent().connect(port, "127.0.0.1");
-    }
+public class SubReqCilent
+{
+	public static void main(String[] args)
+	{
+		int port = 8080;
+		new SubReqCilent().connect(port, "127.0.0.1");
+	}
 
-    public void connect(int port, String host) {
+	public void connect(int port, String host)
+	{
 
-        EventLoopGroup group = new NioEventLoopGroup();
+		EventLoopGroup group = new NioEventLoopGroup();
 
+		try
+		{
+			Bootstrap b = new Bootstrap();
+			b.group(group).channel(NioSocketChannel.class).option(ChannelOption.TCP_NODELAY, true)
+					.handler(new ChannelInitializer<SocketChannel>()
+					{
+						@Override
+						protected void initChannel(SocketChannel socketChannel) throws Exception
+						{
 
-        try {
-            Bootstrap b = new Bootstrap();
-            b.group(group).channel(NioSocketChannel.class)
-                    .option(ChannelOption.TCP_NODELAY, true)
-                    .handler(new ChannelInitializer<SocketChannel>() {
-                        @Override
-                        protected void initChannel(SocketChannel socketChannel) throws Exception {
+							socketChannel.pipeline().addLast(new ObjectDecoder(1024 * 1024,
+									ClassResolvers.cacheDisabled(this.getClass().getClassLoader())));
+							socketChannel.pipeline().addLast(new ObjectEncoder());
+							socketChannel.pipeline().addLast(new SubReqCilentHandler());
+						}
+					});
+			//发起连接操作
+			ChannelFuture f = b.connect(host, port).sync();
 
-                            socketChannel.pipeline().addLast(new ObjectDecoder(1024 * 1024, ClassResolvers.cacheDisabled(this.getClass().getClassLoader())));
-                            socketChannel.pipeline().addLast(new ObjectEncoder());
-                            socketChannel.pipeline().addLast(new SubReqCilentHandler());
-                        }
-                    });
-            //发起连接操作
-            ChannelFuture f = b.connect(host, port).sync();
+			//等待客户端链路关闭
+			f.channel().closeFuture().sync();
 
-            //等待客户端链路关闭
-            f.channel().closeFuture().sync();
-
-
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-            group.shutdownGracefully();
-        }
-    }
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			group.shutdownGracefully();
+		}
+	}
 }
