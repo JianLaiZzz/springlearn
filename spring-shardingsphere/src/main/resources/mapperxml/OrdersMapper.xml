@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.zhw.springshardingsphere.mapper.OrdersMapper">
+  <resultMap id="BaseResultMap" type="com.example.zhw.springshardingsphere.vo.Orders">
+    <!--@mbg.generated-->
+    <!--@Table orders_0-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from orders_0
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from orders_0
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.example.zhw.springshardingsphere.vo.Orders" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into orders_0 (user_id)
+    values (#{userId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.example.zhw.springshardingsphere.vo.Orders" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into orders_0
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.zhw.springshardingsphere.vo.Orders">
+    <!--@mbg.generated-->
+    update orders_0
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.zhw.springshardingsphere.vo.Orders">
+    <!--@mbg.generated-->
+    update orders_0
+    set user_id = #{userId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
