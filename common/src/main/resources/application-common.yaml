@@ -55,11 +55,15 @@ management:
 
 
 
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 
 
-second-datasource:
-  driver-class-name: org.hsqldb.jdbc.JDBCDriver
-  url: jdbc:hsqldb:mem:db2
-  username: sa
-  password:
+
+
+mybatis:
+  config-location: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
