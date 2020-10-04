@@ -25,7 +25,6 @@
         <mysql-connector-java>8.0.19</mysql-connector-java>
         <junit-version>4.12</junit-version>
         <jackson-version>2.11.2</jackson-version>
-        <druid.vsersion>1.1.10</druid.vsersion>
         <google.guava.version>29.0-jre</google.guava.version>
     </properties>
 
@@ -106,12 +105,6 @@
             <version>${jackson-version}</version>
         </dependency>
 
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>${druid.vsersion}</version>
-        </dependency>
 
     </dependencies>
 

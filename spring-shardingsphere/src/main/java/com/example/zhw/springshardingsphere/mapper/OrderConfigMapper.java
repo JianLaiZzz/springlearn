@@ -15,4 +15,5 @@ public interface OrderConfigMapper
 	int updateByPrimaryKeySelective(OrderConfigVo record);
 
 	int updateByPrimaryKey(OrderConfigVo record);
+
 }

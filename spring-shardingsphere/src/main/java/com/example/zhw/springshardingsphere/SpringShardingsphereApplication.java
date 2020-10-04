@@ -5,13 +5,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan(basePackages = "cn.iocoder.springboot.lab18.shardingdatasource.mapper")
+@MapperScan(basePackages = "com.example.zhw.springshardingsphere.mapper")
 public class SpringShardingsphereApplication
 {
 
 	public static void main(String[] args)
 	{
-		SpringApplication.run(SpringShardingsphereApplication.class, args);
+		//		SpringApplication.run(SpringShardingsphereApplication.class, args);
 	}
 
 }
