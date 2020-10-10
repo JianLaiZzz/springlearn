@@ -28,11 +28,11 @@ public class RedisController
 	public boolean redisset(String key, String value)
 	{
 		UserEntity userEntity = new UserEntity();
-		userEntity.setId(Long.valueOf(1));
-		userEntity.setGuid(String.valueOf(1));
-		userEntity.setName("zhangsan");
-		userEntity.setAge(String.valueOf(20));
-		userEntity.setCreateTime(new Date());
+//		userEntity.setId(Long.valueOf(1));
+//		userEntity.setGuid(String.valueOf(1));
+//		userEntity.setName("zhangsan");
+//		userEntity.setAge(String.valueOf(20));
+//		userEntity.setCreateTime(new Date());
 
 		//return redisUtil.set(key,userEntity,ExpireTime);
 
