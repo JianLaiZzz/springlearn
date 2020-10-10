@@ -3,21 +3,21 @@ package webservice;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>anonymous complex type的 Java 类。
+ * <p>helloResponse complex type的 Java 类。
  * 
  * <p>以下模式片段指定包含在此类中的预期内容。
  * 
  * <pre>
- * &lt;complexType>
+ * &lt;complexType name="helloResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="getVersionTimeResult" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,36 +27,36 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "getVersionTimeResult"
+@XmlType(name = "helloResponse", propOrder = {
+    "_return"
 })
-@XmlRootElement(name = "getVersionTimeResponse")
-public class GetVersionTimeResponse {
+public class HelloResponse {
 
-    protected String getVersionTimeResult;
+    @XmlElement(name = "return")
+    protected String _return;
 
     /**
-     * 获取getVersionTimeResult属性的值。
+     * 获取return属性的值。
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getGetVersionTimeResult() {
-        return getVersionTimeResult;
+    public String getReturn() {
+        return _return;
     }
 
     /**
-     * 设置getVersionTimeResult属性的值。
+     * 设置return属性的值。
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setGetVersionTimeResult(String value) {
-        this.getVersionTimeResult = value;
+    public void setReturn(String value) {
+        this._return = value;
     }
 
 }

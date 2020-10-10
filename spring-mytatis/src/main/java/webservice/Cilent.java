@@ -1,17 +1,17 @@
 package webservice;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
+
 public class Cilent {
 
     public static void main(String[] args) {
 
+        WebServiceDemoService_Service service = new WebServiceDemoService_Service();
 
-        IpAddressSearchWebService searchWebServiceSoap = new IpAddressSearchWebService();
-        IpAddressSearchWebServiceHttpGet get=searchWebServiceSoap.getIpAddressSearchWebServiceHttpGet();
+        WebServiceDemoService webServiceDemoService = service.getWebServiceDemoServiceImplPort();
 
-        String s=get.getVersionTime();
-
-        System.out.println(s);
-
+        String result = webServiceDemoService.hello("zhw1111");
+        System.out.println(result);
 
     }
 }
