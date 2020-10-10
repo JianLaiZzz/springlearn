@@ -24,7 +24,7 @@ public interface IpAddressSearchWebServiceHttpGet {
 
 
     /**
-     * <br /><h3>Í¨¹ıÊäÈëIPµØÖ·²éÑ¯¹ú¼Ò¡¢³ÇÊĞ¡¢ËùÓĞÕßµÈĞÅÏ¢¡£Ã»ÓĞ×¢Ã÷¹ú¼ÒµÄÎªÖĞ¹ú</h3><p>ÊäÈë²ÎÊı£ºIPµØÖ·£¨×Ô¶¯Ìæ»» " ¡£" Îª "."£©£¬·µ»ØÊı¾İ£º Ò»¸öÒ»Î¬×Ö·û´®Êı×éString(1)£¬String(0) = IPµØÖ·£»String(1) = ²éÑ¯½á¹û»òÌáÊ¾ĞÅÏ¢</p><br />
+     * <br /><h3>é€šè¿‡è¾“å…¥IPåœ°å€æŸ¥è¯¢å›½å®¶ã€åŸå¸‚ã€æ‰€æœ‰è€…ç­‰ä¿¡æ¯ã€‚æ²¡æœ‰æ³¨æ˜å›½å®¶çš„ä¸ºä¸­å›½</h3><p>è¾“å…¥å‚æ•°ï¼šIPåœ°å€ï¼ˆè‡ªåŠ¨æ›¿æ¢ " ã€‚" ä¸º "."ï¼‰ï¼Œè¿”å›æ•°æ®ï¼š ä¸€ä¸ªä¸€ç»´å­—ç¬¦ä¸²æ•°ç»„String(1)ï¼ŒString(0) = IPåœ°å€ï¼›String(1) = æŸ¥è¯¢ç»“æœæˆ–æç¤ºä¿¡æ¯</p><br />
      * 
      * @param theIpAddress
      * @return
@@ -37,7 +37,7 @@ public interface IpAddressSearchWebServiceHttpGet {
         String theIpAddress);
 
     /**
-     * <br /><h3>»ñµÃÄúµÄIPµØÖ·ºÍµØÖ·ĞÅÏ¢</h3><p>ÊäÈë²ÎÊı£ºÎŞ£¬·µ»ØÊı¾İ£º Ò»¸öÒ»Î¬×Ö·û´®Êı×éString(1)£¬String(0) = IPµØÖ·£»String(1) = µØÖ·ĞÅÏ¢</p><br />
+     * <br /><h3>è·å¾—æ‚¨çš„IPåœ°å€å’Œåœ°å€ä¿¡æ¯</h3><p>è¾“å…¥å‚æ•°ï¼šæ— ï¼Œè¿”å›æ•°æ®ï¼š ä¸€ä¸ªä¸€ç»´å­—ç¬¦ä¸²æ•°ç»„String(1)ï¼ŒString(0) = IPåœ°å€ï¼›String(1) = åœ°å€ä¿¡æ¯</p><br />
      * 
      * @return
      *     returns webservice.ArrayOfString
@@ -47,7 +47,7 @@ public interface IpAddressSearchWebServiceHttpGet {
     public ArrayOfString getGeoIPContext();
 
     /**
-     * <br /><h3>»ñµÃ±¾IPµØÖ·ËÑË÷ WEB ·şÎñµÄÊı¾İ¿â°æ±¾¸üĞÂÊ±¼ä</h3><p>ÊäÈë²ÎÊı£ºÎŞ£¬Êä³ö²ÎÊı String</p><br />
+     * <br /><h3>è·å¾—æœ¬IPåœ°å€æœç´¢ WEB æœåŠ¡çš„æ•°æ®åº“ç‰ˆæœ¬æ›´æ–°æ—¶é—´</h3><p>è¾“å…¥å‚æ•°ï¼šæ— ï¼Œè¾“å‡ºå‚æ•° String</p><br />
      * 
      * @return
      *     returns java.lang.String
