@@ -12,12 +12,12 @@ public class Cilent {
 
     public static void main(String[] args) throws MalformedURLException {
 
-//        WebServiceDemoService_Service service = new WebServiceDemoService_Service();
-//
-//        WebServiceDemoService webServiceDemoService = service.getWebServiceDemoServiceImplPort();
-//
-//        String result = webServiceDemoService.hello("zhw1111");
-//        System.out.println(result);
+        WebServiceDemoService_Service service = new WebServiceDemoService_Service();
+
+        WebServiceDemoService webServiceDemoService = service.getWebServiceDemoServiceImplPort();
+
+        String result = webServiceDemoService.hello("zhw1111");
+        System.out.println(result);
 
 
 //
@@ -42,7 +42,7 @@ public class Cilent {
         //1.namespaceURI - 命名空间地址
         //2.localPart - 服务视图名
         QName serviceName = new QName("http://WebXml.com.cn/", "MobileCodeWS");
-        Service service = Service.create(wsdlDocumentLocation, serviceName);
+        Service service1 = Service.create(wsdlDocumentLocation, serviceName);
 
         //获取服务实现类
         MobileCodeWSSoap mobileCodeWSSoap = service.getPort(MobileCodeWSSoap.class);
