@@ -3,7 +3,7 @@ package com.example.zhw.springsource.callback;
 public class Cilent {
 
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
 
         ICaller caller = new Caller();
@@ -11,7 +11,7 @@ public class Cilent {
 
         caller.call(new CallBack() {
             @Override
-            public void execute(ICaller caller) throws Exception {
+            public void execute(ICaller caller) {
 
 
                 System.out.println("调用我做点事");

@@ -4,7 +4,7 @@ public class Caller implements ICaller {
 
 
     @Override
-    public void call(CallBack callBack) throws Exception {
+    public void call(CallBack callBack) {
 
 
         System.out.println("调用者");
