@@ -10,8 +10,7 @@ public class ProxyTest
 {
 
 	@Test
-	public void testProxy()
-	{
+	public void testProxy() throws Exception {
 		UserService userService = new UserServiceImpl();
 
 		MyInvocationHandler invocationHandler = new MyInvocationHandler(userService);

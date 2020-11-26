@@ -26,7 +26,7 @@ common/HELP.md
 /logs/
 !/logs/
 common/target/
-springsource/target/
+
 !/logs/info/
 !/logs/warn/
 !/logs/log_debug.log

@@ -9,5 +9,5 @@ public interface UserService
 	/**
 	 * 目标方法
 	 */
-	void add();
+	void add() throws Exception;
 }
