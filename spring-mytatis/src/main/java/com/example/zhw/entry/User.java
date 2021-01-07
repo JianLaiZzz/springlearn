@@ -32,4 +32,10 @@ public class User implements Serializable
 	public static final String COL_PASSWORD = "password";
 
 	public static final String COL_BIRTHDAY = "birthday";
+
+	public User(String username, String password, Date birthday) {
+		this.username = username;
+		this.password = password;
+		this.birthday = birthday;
+	}
 }

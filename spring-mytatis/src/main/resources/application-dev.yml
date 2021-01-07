@@ -1,2 +1,71 @@
 server:
   port: 8080
+
+
+spring:
+  #  redis:
+  #    password: 123456
+  #    timeout: 5000
+  #    sentinel:
+  #      master: mymaster
+  #      # 哨兵的IP:Port列表
+  #      nodes: 120.78.132.139:26379,120.78.132.139:26380,120.78.132.139:26381
+  #    lettuce: # 或lettuce
+  #      pool:
+  #        max-active: 8
+  #        max-wait: -1
+  #        max-idle: 8
+  #        min-idle: 0
+  datasource:
+    #url: jdbc:mysql://120.78.132.139:8066/learn?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://120.78.132.139:8066/learn?useUnicode=true&characterEncoding=utf8
+    name: zhw
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    #druid 数据源专有配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: false
+    #配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入
+    #如果运行时报错  java.lang.ClassNotFoundException: org.apache.log4j.Priority
+    #则导入 log4j 依赖即可，Maven 地址： https://mvnrepository.com/artifact/log4j/log4j
+    filters: stat,wall,slf4j,config
+    #合并多个DruidDataSource的监控数据
+    useGlobalDataSourceStat: true
+    #通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  security:
+    user:
+      name: zhw
+      password: 123456
+  profiles:
+    include:
+
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#logging:
+#  file:
+#    path: D:\logs\springlearn
+#  config: classpath:logback-spring.xml 可以不配置默认读取
+
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

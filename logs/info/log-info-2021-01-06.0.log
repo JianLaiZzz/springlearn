@@ -1,0 +1,77 @@
+2021-01-06 18:17:11.200 [main] INFO  com.example.zhw.SpringMytatisApplication - Starting SpringMytatisApplication on RD-INTERNET2 with PID 13612 (D:\zhangwei\github\springlearn\spring-mytatis\target\classes started by rd217 in D:\zhangwei\github\springlearn)
+2021-01-06 18:17:11.234 [main] INFO  com.example.zhw.SpringMytatisApplication - The following profiles are active: dev,common
+2021-01-06 18:17:13.550 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-01-06 18:17:13.554 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-01-06 18:17:13.591 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2021-01-06 18:17:14.189 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$b36261bd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-06 18:17:14.258 [main] INFO  o.s.w.s.a.server.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2021-01-06 18:17:14.276 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfig' of type [com.example.zhw.config.RedisConfig$$EnhancerBySpringCGLIB$$e18707ea] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-06 18:17:14.776 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-01-06 18:17:14.792 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-01-06 18:17:14.793 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-01-06 18:17:14.793 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+2021-01-06 18:17:15.143 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-01-06 18:17:15.143 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3729 ms
+2021-01-06 18:17:15.493 [main] INFO  o.s.boot.web.servlet.RegistrationBean - Servlet statViewServlet was not registered (possibly already registered?)
+2021-01-06 18:17:15.504 [main] INFO  o.s.boot.web.servlet.RegistrationBean - Filter webStatFilter was not registered (possibly already registered?)
+2021-01-06 18:17:21.636 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1,zhw} inited
+2021-01-06 18:17:22.359 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2021-01-06 18:17:22.362 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2021-01-06 18:17:22.377 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-01-06 18:19:01.729 [main] INFO  com.example.zhw.SpringMytatisApplication - Starting SpringMytatisApplication on RD-INTERNET2 with PID 17380 (D:\zhangwei\github\springlearn\spring-mytatis\target\classes started by rd217 in D:\zhangwei\github\springlearn)
+2021-01-06 18:19:01.734 [main] INFO  com.example.zhw.SpringMytatisApplication - The following profiles are active: dev,common
+2021-01-06 18:19:02.979 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-01-06 18:19:02.983 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-01-06 18:19:03.018 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2021-01-06 18:19:03.492 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$3f46105a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-06 18:19:03.538 [main] INFO  o.s.w.s.a.server.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2021-01-06 18:19:03.561 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfig' of type [com.example.zhw.config.RedisConfig$$EnhancerBySpringCGLIB$$6d6ab687] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-06 18:19:03.991 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-01-06 18:19:04.005 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-01-06 18:19:04.005 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-01-06 18:19:04.006 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+2021-01-06 18:19:04.208 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-01-06 18:19:04.208 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2418 ms
+2021-01-06 18:19:04.366 [main] INFO  o.s.boot.web.servlet.RegistrationBean - Servlet statViewServlet was not registered (possibly already registered?)
+2021-01-06 18:19:04.372 [main] INFO  o.s.boot.web.servlet.RegistrationBean - Filter webStatFilter was not registered (possibly already registered?)
+2021-01-06 18:19:18.092 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1,zhw} inited
+2021-01-06 18:19:18.442 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2021-01-06 18:19:18.446 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2021-01-06 18:19:18.462 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-01-06 18:20:47.448 [main] INFO  com.example.zhw.SpringMytatisApplication - Starting SpringMytatisApplication on RD-INTERNET2 with PID 5132 (D:\zhangwei\github\springlearn\spring-mytatis\target\classes started by rd217 in D:\zhangwei\github\springlearn)
+2021-01-06 18:20:47.452 [main] INFO  com.example.zhw.SpringMytatisApplication - The following profiles are active: dev,common
+2021-01-06 18:20:48.670 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-01-06 18:20:48.673 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-01-06 18:20:48.708 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2021-01-06 18:20:49.255 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$e12b07ee] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-06 18:20:49.305 [main] INFO  o.s.w.s.a.server.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2021-01-06 18:20:49.330 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfig' of type [com.example.zhw.config.RedisConfig$$EnhancerBySpringCGLIB$$f4fae1b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-06 18:20:49.756 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-01-06 18:20:49.870 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-01-06 18:20:49.871 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-01-06 18:20:49.871 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+2021-01-06 18:20:50.001 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-01-06 18:20:50.001 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2493 ms
+2021-01-06 18:20:50.153 [main] INFO  o.s.boot.web.servlet.RegistrationBean - Servlet statViewServlet was not registered (possibly already registered?)
+2021-01-06 18:20:50.159 [main] INFO  o.s.boot.web.servlet.RegistrationBean - Filter webStatFilter was not registered (possibly already registered?)
+2021-01-06 18:20:56.573 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1,zhw} inited
+2021-01-06 18:20:58.230 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-01-06 18:20:58.763 [main] INFO  o.a.c.w.s.factory.ReflectionServiceFactoryBean - Creating Service {http://webservice.business.mixpay.com}WebServiceDemoService from class com.example.zhw.webservice.WebServiceDemoService
+2021-01-06 18:21:00.014 [main] INFO  org.apache.cxf.endpoint.ServerImpl - Setting the server's publish address to be /webservice
+2021-01-06 18:21:00.216 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-06 18:21:01.190 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-01-06 18:21:01.297 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-01-06 18:21:01.384 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-01-06 18:21:01.534 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: helloUsingGET_1
+2021-01-06 18:21:01.616 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-01-06 18:21:01.661 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-01-06 18:21:01.666 [main] INFO  com.example.zhw.SpringMytatisApplication - Started SpringMytatisApplication in 15.101 seconds (JVM running for 16.159)
+2021-01-06 18:21:02.342 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-06 18:21:02.342 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-01-06 18:21:02.353 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 11 ms
+2021-01-06 18:21:18.843 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-06 18:21:18.971 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed

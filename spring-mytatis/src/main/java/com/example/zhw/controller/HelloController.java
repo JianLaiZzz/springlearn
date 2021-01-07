@@ -16,6 +16,9 @@ import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,38 +27,34 @@ import java.util.Map;
  */
 @RestController
 @Api("hello基础文档")
-public class HelloController
-{
-	@Value("${value}")
-	private String value;
+public class HelloController {
+    @Value("${value}")
+    private String value;
 
-	@Autowired
-	private UserService userService;
+    @Autowired
+    private UserService userService;
 
-	@GetMapping("/hello")
-	@ApiOperation(value = "hello方法")
-	public String hello() throws MalformedURLException {
-		Wrapper<User> wrapper = new EntityWrapper();
-		Map<String, Object> map = userService.selectMap(wrapper);
-		map.forEach((k, v) ->
-		{
-			System.out.println(k + ":" + v);
-		});
+    @GetMapping("/hello")
+    @ApiOperation(value = "hello方法")
+    public String hello() throws MalformedURLException {
+        Wrapper<User> wrapper = new EntityWrapper();
+        Map<String, Object> map = userService.selectMap(wrapper);
+        List<String> nameList = new ArrayList<>();
+        map.forEach((k, v) ->
+        {
+            System.out.println(k + ":" + v);
+            nameList.add(k);
+        });
 
-		//创建WSDL文件的URL
-		URL wsdlDocumentLocation = new URL("http://ws.webxml.com.cn/WebServices/MobileCodeWS.asmx?wsdl");
-		//创建服务名称
-		//1.namespaceURI - 命名空间地址
-		//2.localPart - 服务视图名
-		QName serviceName = new QName("http://WebXml.com.cn/", "MobileCodeWS");
-		Service service = Service.create(wsdlDocumentLocation, serviceName);
 
-		//获取服务实现类
-		MobileCodeWSSoap mobileCodeWSSoap = service.getPort(MobileCodeWSSoap.class);
-		//调用方法
-		String message = mobileCodeWSSoap.getMobileCodeInfo("18779147214", null);
-		System.out.println(message);
+        return nameList.toString();
+    }
 
-		return value;
-	}
+
+    @GetMapping("/add")
+    @ApiOperation(value = "add方法")
+    public void add(String name) throws MalformedURLException {
+        User user = new User(name, "13132", new Date());
+        userService.insert(user);
+    }
 }
