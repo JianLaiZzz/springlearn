@@ -161,7 +161,7 @@
     <!--                    &lt;!&ndash; 剔除spring-boot打包的org和BOOT-INF文件夹(用于子模块打包) &ndash;&gt;-->
     <!--                    <skip>true</skip>-->
     <!--                    &lt;!&ndash; 指定该jar包启动时的主类[建议] &ndash;&gt;-->
-    <!--                    <mainClass>com.example.zhw.springsource.SpringsourceApplication</mainClass>-->
+    <!--                    <mainClass>com.example.zhw.SpringsourceApplication</mainClass>-->
     <!--                    <layout>ZIP</layout>-->
     <!--                    <includes>-->
     <!--                        &lt;!&ndash; 排除第三方依赖jar(只保留本项目的jar) &ndash;&gt;-->
