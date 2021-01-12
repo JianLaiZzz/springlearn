@@ -11,31 +11,33 @@ import java.util.Date;
 
 @Data
 @TableName(value = "uesr")
-public class User implements Serializable
-{
-	@TableId(value = "id", type = IdType.AUTO)
-	private Integer id;
+public class User implements Serializable {
+    @TableId(value = "id", type = IdType.AUTO)
+    private Integer id;
 
-	@TableField(value = "username")
-	private String username;
+    @TableField(value = "username")
+    private String username;
 
-	@TableField(value = "password")
-	private String password;
+    @TableField(value = "password")
+    private String password;
 
-	@TableField(value = "birthday")
-	private Date birthday;
+    @TableField(value = "birthday")
+    private Date birthday;
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public static final String COL_USERNAME = "username";
+    public static final String COL_USERNAME = "username";
 
-	public static final String COL_PASSWORD = "password";
+    public static final String COL_PASSWORD = "password";
 
-	public static final String COL_BIRTHDAY = "birthday";
+    public static final String COL_BIRTHDAY = "birthday";
 
-	public User(String username, String password, Date birthday) {
-		this.username = username;
-		this.password = password;
-		this.birthday = birthday;
-	}
+    public User() {
+    }
+
+    public User(String username, String password, Date birthday) {
+        this.username = username;
+        this.password = password;
+        this.birthday = birthday;
+    }
 }

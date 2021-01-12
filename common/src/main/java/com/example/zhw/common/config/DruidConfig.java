@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
 
-@Configuration
+//@Configuration(在配置文件中配置了)
 public class DruidConfig
 {
 

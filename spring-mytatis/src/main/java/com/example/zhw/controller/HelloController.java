@@ -38,14 +38,15 @@ public class HelloController {
     @ApiOperation(value = "hello方法")
     public String hello() throws MalformedURLException {
         Wrapper<User> wrapper = new EntityWrapper();
-        Map<String, Object> map = userService.selectMap(wrapper);
-        List<String> nameList = new ArrayList<>();
-        map.forEach((k, v) ->
-        {
-            System.out.println(k + ":" + v);
-            nameList.add(k);
-        });
+        List<User> map = userService.selectList(wrapper);
 
+
+        List<String> nameList = new ArrayList<>();
+        map.forEach(user ->
+        {
+
+            nameList.add(user.getUsername());
+        });
 
         return nameList.toString();
     }
