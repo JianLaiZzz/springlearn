@@ -22,7 +22,7 @@ spring:
     name: zhw
     username: root
     password: 123456
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     #druid 数据源专有配置 下面的连接池属性不会自动装配，使用下面的属性需要在配置类中配置数据源
     druid:
