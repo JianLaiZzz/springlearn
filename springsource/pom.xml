@@ -15,13 +15,6 @@
     <packaging>jar</packaging>
 
 
-    <properties>
-        <mybatis-spring-boot>2.1.2</mybatis-spring-boot>
-        <mysql-connector>8.0.19</mysql-connector>
-        <junit-version>4.12</junit-version>
-    </properties>
-
-
     <dependencies>
 
 
@@ -78,6 +71,12 @@
         </dependency>
 
         <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-connector-java}</version>
+        </dependency>
+
+        <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>5.0.0.Alpha2</version>
@@ -92,63 +91,6 @@
 
 
         <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>3.9.1</version>
-        </dependency>
-
-        <dependency>
-
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-chrome-driver</artifactId>
-            <version>3.9.1</version>
-        </dependency>
-
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.boot</groupId>-->
-        <!--            <artifactId>spring-boot-starter-data-redis</artifactId>-->
-        <!--            <exclusions>-->
-        <!--                <exclusion>-->
-        <!--                    <artifactId>lettuce-core</artifactId>-->
-        <!--                    <groupId>io.lettuce</groupId>-->
-        <!--                </exclusion>-->
-        <!--            </exclusions>-->
-        <!--        </dependency>-->
-
-
-        <dependency>
-
-            <groupId>org.seleniumhq.selenium</groupId>
-
-            <artifactId>selenium-java</artifactId>
-
-        </dependency>
-
-
-        <dependency>
-
-            <groupId>org.seleniumhq.selenium</groupId>
-
-            <artifactId>selenium-chrome-driver</artifactId>
-
-        </dependency>
-
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>htmlunit-driver</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-api</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-remote-driver</artifactId>
-        </dependency>
-        <dependency>
-
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-exec</artifactId>
             <version>1.3</version>
@@ -199,31 +141,10 @@
             <version>1.2.75</version>
         </dependency>
 
-
-        <!--        <dependency>-->
-        <!--            <groupId>com.fasterxml.jackson.core</groupId>-->
-        <!--            <artifactId>jackson-databind</artifactId>-->
-        <!--            <version>2.9.9.2</version>-->
-        <!--            <exclusions>-->
-        <!--                <exclusion>-->
-        <!--                    <artifactId>jackson-core</artifactId>-->
-        <!--                    <groupId>com.fasterxml.jackson.core</groupId>-->
-        <!--                </exclusion>-->
-        <!--            </exclusions>-->
-        <!--        </dependency>-->
-
-
-        <!--        <dependency>-->
-        <!--            <groupId>com.fasterxml.jackson.core</groupId>-->
-        <!--            <artifactId>jackson-core</artifactId>-->
-        <!--            <version>2.9.9</version>-->
-        <!--        </dependency>-->
-
-        <!--        <dependency>-->
-        <!--            <groupId>com.fasterxml.jackson.core</groupId>-->
-        <!--            <artifactId>jackson-annotations</artifactId>-->
-        <!--            <version>2.9.0</version>-->
-        <!--        </dependency>-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
 
 
     </dependencies>
@@ -345,50 +266,8 @@
                 <!--打包时去除第三方依赖-->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <layout>ZIP</layout>
-                    <includes>
-                        <include>
-                            <groupId>non-exists</groupId>
-                            <artifactId>non-exists</artifactId>
-                        </include>
-                    </includes>
-                </configuration>
-            </plugin>
-            <!--拷贝第三方依赖文件到指定目录-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>copy-dependencies</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <!--target/lib是依赖jar包的输出目录，根据自己喜好配置-->
-                            <outputDirectory>target/lib</outputDirectory>
-                            <excludeTransitive>false</excludeTransitive>
-                            <stripVersion>false</stripVersion>
-                            <includeScope>runtime</includeScope>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
-
-        <!--        打包时会把资源文件剔除，可以在jar包同级目录建config文件夹，把资源文件拷贝进去-->
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <excludes>
-                    <exclude>**/*.properties</exclude>
-                    <exclude>**/*.yml</exclude>
-                </excludes>
-            </resource>
-        </resources>
-
     </build>
 
 

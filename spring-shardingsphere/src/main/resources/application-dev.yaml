@@ -1,0 +1,18 @@
+#spring.shardingsphere.datasource.names= # 省略数据源配置
+#spring.shardingsphere.rules.primary-replica-replication.data-sources.<primary-
+#replica-replication-data-source-name>.primary-data-source-name= # 主数据源名称
+#spring.shardingsphere.rules.primary-replica-replication.data-sources.<primary-
+#replica-replication-data-source-name>.replica-data-source-names= # 从数据源名称，多个从
+#数据源⽤逗号分隔
+#spring.shardingsphere.rules.primary-replica-replication.data-sources.<primary-
+#replica-replication-data-source-name>.load-balancer-name= # 负载均衡算法名称
+#  # 负载均衡算法配置
+#spring.shardingsphere.rules.primary-replica-replication.load-balancers.<load-
+#balance-algorithm-name>.type= # 负载均衡算法类型
+#spring.shardingsphere.rules.primary-replica-replication.load-balancers.<load-
+#balance-algorithm-name>.props.xxx= # 负载均衡算法属性配置
+
+spring:
+  shardingsphere:
+    sharding:
+      master-slave-rules:
