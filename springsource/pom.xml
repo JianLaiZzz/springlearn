@@ -104,41 +104,18 @@
             <artifactId>kie-api</artifactId>
             <version>6.5.0.Final</version>
         </dependency>
+
         <dependency>
             <groupId>org.drools</groupId>
             <artifactId>drools-compiler</artifactId>
             <version>6.5.0.Final</version>
             <scope>runtime</scope>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20160810</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.skyscreamer/jsonassert -->
-        <dependency>
-            <groupId>org.skyscreamer</groupId>
-            <artifactId>jsonassert</artifactId>
-            <version>1.5.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.skyscreamer</groupId>
-            <artifactId>jsonassert</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.8.6</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.75</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>protobuf-java</artifactId>
+                    <groupId>com.google.protobuf</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -146,126 +123,42 @@
             <artifactId>junit</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
 
     </dependencies>
 
 
-    <!--    <build>-->
-    <!--        &lt;!&ndash; 打包输出的根目录 &ndash;&gt;-->
-    <!--        &lt;!&ndash; <directory>target/${project.version}</directory> &ndash;&gt;-->
-    <!--        <plugins>-->
-    <!--            <plugin>-->
-    <!--                <groupId>org.springframework.boot</groupId>-->
-    <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-    <!--                <configuration>-->
-    <!--                    &lt;!&ndash; 剔除spring-boot打包的org和BOOT-INF文件夹(用于子模块打包) &ndash;&gt;-->
-    <!--                    <skip>true</skip>-->
-    <!--                    &lt;!&ndash; 指定该jar包启动时的主类[建议] &ndash;&gt;-->
-    <!--                    <mainClass>com.example.zhw.SpringsourceApplication</mainClass>-->
-    <!--                    <layout>ZIP</layout>-->
-    <!--                    <includes>-->
-    <!--                        &lt;!&ndash; 排除第三方依赖jar(只保留本项目的jar) &ndash;&gt;-->
-    <!--                        <include>-->
-    <!--                            <groupId>${project.groupId}</groupId>-->
-    <!--                            <artifactId>${project.artifactId}</artifactId>-->
-    <!--                        </include>-->
-    <!--                    </includes>-->
-    <!--                </configuration>-->
-    <!--            </plugin>-->
+    <!--        Spring Boot 的配置文件加载优先级如下：-->
 
+    <!--       1 当前目录下的config子目录-->
+    <!--       2 当前目录-->
+    <!--       3 classpath下的config目录-->
+    <!--       4 classpath根路径-->
 
-    <!--            &lt;!&ndash; 打源码包 &ndash;&gt;-->
-    <!--            <plugin>-->
-    <!--                <groupId>org.apache.maven.plugins</groupId>-->
-    <!--                <artifactId>maven-source-plugin</artifactId>-->
-    <!--                <configuration>-->
-    <!--                    <attach>true</attach>-->
-    <!--                </configuration>-->
-    <!--                <executions>-->
-    <!--                    <execution>-->
-    <!--                        <id>attach-sources</id>-->
-    <!--                        <phase>compile</phase>-->
-    <!--                        <goals>-->
-    <!--                            <goal>jar-no-fork</goal>-->
-    <!--                        </goals>-->
-    <!--                    </execution>-->
-    <!--                </executions>-->
-    <!--            </plugin>-->
-    <!--            &lt;!&ndash; 把项目依赖的第三方包打包在target/lib下 &ndash;&gt;-->
-    <!--            <plugin>-->
-    <!--                <groupId>org.apache.maven.plugins</groupId>-->
-    <!--                <artifactId>maven-dependency-plugin</artifactId>-->
-    <!--                <executions>-->
-    <!--                    <execution>-->
-    <!--                        <id>copy-dependencies</id>-->
-    <!--                        <phase>package</phase>-->
-    <!--                        <goals>-->
-    <!--                            <goal>copy-dependencies</goal>-->
-    <!--                        </goals>-->
-    <!--                        <configuration>-->
-    <!--                            <outputDirectory>${project.build.directory}/lib</outputDirectory>-->
-    <!--                            <excludeTransitive>false</excludeTransitive>-->
-    <!--                            <stripVersion>false</stripVersion>-->
-    <!--                            <includeScope>runtime</includeScope>-->
-    <!--                        </configuration>-->
-    <!--                    </execution>-->
-    <!--                </executions>-->
-    <!--            </plugin>-->
-    <!--        </plugins>-->
-
-    <!--        <resources>-->
-    <!--            &lt;!&ndash; 打包src/main/java下的xml文件 &ndash;&gt;-->
-    <!--            <resource>-->
-    <!--                <directory>src/main/java</directory>-->
-    <!--                <includes>-->
-    <!--                    <include>**/*.xml</include>-->
-    <!--                </includes>-->
-    <!--            </resource>-->
-    <!--            &lt;!&ndash; 排除resources下的配置文件 &ndash;&gt;-->
-    <!--            <resource>-->
-    <!--                <filtering>true</filtering>-->
-    <!--                <directory>src/main/resources</directory>-->
-    <!--                <excludes>-->
-    <!--                    <exclude>static/**</exclude>-->
-    <!--                    <exclude>templates/**</exclude>-->
-    <!--                    <exclude>*.yml</exclude>-->
-    <!--                    <exclude>*.properties</exclude>-->
-    <!--                    <exclude>*.xml</exclude>-->
-    <!--                    <exclude>*.txt</exclude>-->
-    <!--                </excludes>-->
-    <!--                <targetPath>BOOT-INF/classes/</targetPath>-->
-    <!--            </resource>-->
-    <!--            &lt;!&ndash; 打包lib下的jar包 &ndash;&gt;-->
-    <!--            <resource>-->
-    <!--                <directory>lib</directory>-->
-    <!--                <targetPath>BOOT-INF/lib/</targetPath>-->
-    <!--                <includes>-->
-    <!--                    <include>**/*.jar</include>-->
-    <!--                </includes>-->
-    <!--            </resource>-->
-    <!--        </resources>-->
-    <!--    </build>-->
-
-
+    <!--        优先级自上而下递减-->
+    <!--        -->
     <build>
-
-
-        <!--        Spring Boot 的配置文件加载优先级如下：-->
-
-        <!--       1 当前目录下的config子目录-->
-        <!--       2 当前目录-->
-        <!--       3 classpath下的config目录-->
-        <!--       4 classpath根路径-->
-
-        <!--        优先级自上而下递减-->
-        <!--        -->
-
-
         <plugins>
             <plugin>
-                <!--打包时去除第三方依赖-->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>

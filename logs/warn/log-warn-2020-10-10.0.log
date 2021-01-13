@@ -1,7 +1,0 @@
-2020-10-10 10:07:45.319 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.example.zhw.mapper.*]' package. Please check your configuration.
-2020-10-10 10:23:39.185 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.example.zhw.mapper.*]' package. Please check your configuration.
-2020-10-10 17:22:21.385 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.example.zhw.mapper.*]' package. Please check your configuration.
-2020-10-10 17:26:18.659 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.example.zhw.mapper.*]' package. Please check your configuration.
-2020-10-10 17:27:21.782 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.example.zhw.mapper.*]' package. Please check your configuration.
-2020-10-10 17:30:17.995 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.example.zhw.mapper.*]' package. Please check your configuration.
-2020-10-10 17:33:11.459 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.example.zhw.mapper.*]' package. Please check your configuration.
