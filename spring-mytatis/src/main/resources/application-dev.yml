@@ -3,22 +3,22 @@ server:
 
 
 spring:
-  #  redis:
-  #    password: "*octserver*123"
-  #    timeout: 5000
-  #    sentinel:
-  #      master: mymaster
-  #      # 哨兵的IP:Port列表
-  #      nodes: 172.18.125.58:26379,172.18.125.58:26380,172.18.125.57:26381
-  #    lettuce: # 或lettuce
-  #      pool:
-  #        max-active: 8
-  #        max-wait: -1
-  #        max-idle: 8
-  #        min-idle: 0
+  redis:
+    password: 123456
+    timeout: 5000
+    sentinel:
+      master: mymaster
+      # 哨兵的IP:Port列表
+      nodes: 120.78.132.139:26379,120.78.132.139:26380,120.78.132.139:26381
+    lettuce: # 或lettuce
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
   datasource:
     #url: jdbc:mysql://120.78.132.139:8066/learn?useUnicode=true&characterEncoding=utf8
-    url: jdbc:mysql://120.78.132.139:3306/learn?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://120.78.132.139:6378/learn?useUnicode=true&characterEncoding=utf8
     name: zhw
     username: root
     password: 123456
