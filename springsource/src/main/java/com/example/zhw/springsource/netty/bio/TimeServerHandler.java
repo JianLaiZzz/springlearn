@@ -11,36 +11,41 @@ import java.util.Date;
  * @author zhangwei1
  * @date 2020/6/2 14:42
  */
-public class TimeServerHandler extends ChannelHandlerAdapter
-{
+public class TimeServerHandler extends ChannelHandlerAdapter {
 
-	private int counter;
+    private int counter;
 
-	@Override
-	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception
-	{
 
-		String body = (String) msg;
+//    @Override
+//    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+//        System.out.println("连接上来了，处理类实列，TimeServerHandler，" + this.toString());
+//    }
 
-		System.out.println("the time server receive order :" + body + ";the counter is:" + ++counter);
-		String currentTime = "QUERY TIME ORDER".equalsIgnoreCase(body) ? new Date().toString()
-				: "bad order";
+    @Override
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 
-		currentTime = currentTime + System.getProperty("line.separator");
+        String body = (String) msg;
 
-		ByteBuf resp = Unpooled.copiedBuffer(currentTime.getBytes());
-		ctx.write(resp);
-	}
+        System.out.println("the time server receive order :" + body + ";the counter is:" + ++counter);
+        String currentTime = "QUERY TIME ORDER".equalsIgnoreCase(body) ? new Date().toString()
+                : "bad order";
 
-	@Override
-	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception
-	{
-		ctx.flush();
-	}
+        currentTime = currentTime + System.getProperty("line.separator");
 
-	@Override
-	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception
-	{
-		ctx.close();
-	}
+        ByteBuf resp = Unpooled.copiedBuffer(currentTime.getBytes());
+        ctx.write(resp);
+
+        // ctx.channel().close();
+    }
+
+    @Override
+    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+        ctx.flush();
+    }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        ctx.close();
+    }
+
 }

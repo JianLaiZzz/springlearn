@@ -38,7 +38,7 @@
         <module>spring-shardingsphere</module>
         <module>spring-elasticsearch</module>
         <module>common</module>
-        <module>alibaba</module>
+<!--        <module>alibaba</module>-->
     </modules>
 
     <dependencies>
@@ -69,6 +69,7 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${springfox-swagger-ui}</version>
         </dependency>
+
 
     </dependencies>
 
