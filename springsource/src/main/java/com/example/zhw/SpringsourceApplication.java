@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.example.zhw.common.controller")
+//@ComponentScan(basePackages = { "com.example.zhw.common.controller", "com.example.zhw.springsource.pay.*" })
 public class SpringsourceApplication
 {
 
