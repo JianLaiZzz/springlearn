@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.zhw.mapper.AssetstypeMapper">
+  <resultMap id="BaseResultMap" type="com.example.zhw.entry.Assetstype">
+    <!--@mbg.generated-->
+    <!--@Table t_b_assetstype-->
+    <id column="uid" jdbcType="VARCHAR" property="uid" />
+    <id column="area_code" jdbcType="VARCHAR" property="areaCode" />
+    <result column="puid" jdbcType="VARCHAR" property="puid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="des" jdbcType="VARCHAR" property="des" />
+    <result column="isQuote" jdbcType="BIT" property="isquote" />
+    <result column="template" jdbcType="VARCHAR" property="template" />
+    <result column="inputSit" jdbcType="VARCHAR" property="inputsit" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    `uid`, area_code, puid, `name`, des, isQuote, `template`, inputSit
+  </sql>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into t_b_assetstype
+    (`uid`, area_code, puid, `name`, des, isQuote, `template`, inputSit)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.uid,jdbcType=VARCHAR}, #{item.areaCode,jdbcType=VARCHAR}, #{item.puid,jdbcType=VARCHAR}, 
+        #{item.name,jdbcType=VARCHAR}, #{item.des,jdbcType=VARCHAR}, #{item.isquote,jdbcType=BIT}, 
+        #{item.template,jdbcType=VARCHAR}, #{item.inputsit,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+</mapper>

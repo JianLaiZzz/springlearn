@@ -1,6 +1,6 @@
 package com.example.zhw.mapper;
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.zhw.entry.User;
 import org.apache.ibatis.annotations.Mapper;
 

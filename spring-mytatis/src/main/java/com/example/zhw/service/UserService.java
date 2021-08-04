@@ -1,6 +1,6 @@
 package com.example.zhw.service;
 
-import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.zhw.entry.User;
 
 /**
@@ -10,4 +10,5 @@ import com.example.zhw.entry.User;
 public interface UserService extends IService<User>
 {
 
+	void get(Integer uid) throws Exception;
 }
