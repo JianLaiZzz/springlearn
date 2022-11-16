@@ -24,7 +24,7 @@
         <springfox-swagger-ui>2.7.0</springfox-swagger-ui>
         <mysql-connector-java>8.0.19</mysql-connector-java>
         <junit-version>4.12</junit-version>
-        <jackson-version>2.11.2</jackson-version>
+        <jackson-version>2.12.7.1</jackson-version>
         <google.guava.version>29.0-jre</google.guava.version>
         <mysql-connector>5.1.39</mysql-connector>
         <druid.vsersion>1.2.4</druid.vsersion>
